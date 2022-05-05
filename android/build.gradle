@@ -17,7 +17,7 @@ android {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "com.badlogic.drop"
+        applicationId "own.ball"
         minSdkVersion 14
         targetSdkVersion 32
         versionCode 1
@@ -86,7 +86,7 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.badlogic.drop/com.badlogic.drop.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'own.ball/own.ball.AndroidLauncher'
 }
 
 eclipse.project.name = appName + "-android"

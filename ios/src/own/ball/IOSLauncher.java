@@ -1,17 +1,17 @@
-package com.badlogic.drop;
+package own.ball;
 
 import org.robovm.apple.foundation.NSAutoreleasePool;
 import org.robovm.apple.uikit.UIApplication;
 
 import com.badlogic.gdx.backends.iosrobovm.IOSApplication;
 import com.badlogic.gdx.backends.iosrobovm.IOSApplicationConfiguration;
-import com.badlogic.drop.Drop;
+import own.ball.Main;
 
 public class IOSLauncher extends IOSApplication.Delegate {
     @Override
     protected IOSApplication createApplication() {
         IOSApplicationConfiguration config = new IOSApplicationConfiguration();
-        return new IOSApplication(new Drop(), config);
+        return new IOSApplication(new Main(), config);
     }
 
     public static void main(String[] argv) {
