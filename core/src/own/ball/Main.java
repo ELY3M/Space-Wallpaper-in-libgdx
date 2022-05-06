@@ -19,6 +19,10 @@ import java.util.List;
 import java.util.Random;
 
 public class Main extends ApplicationAdapter {
+	//1920×1080
+		
+	int windowWidth = 1920; 
+	int windowHeight = 1080; 
 	Texture background;
 	Texture alien3;
 	Texture alien4;
@@ -149,16 +153,81 @@ public class Main extends ApplicationAdapter {
 
 	private SpriteBatch batch;	
 	private OrthographicCamera camera;
-    Ball ball;
-	
-	ArrayList<Ball> balls = new ArrayList<>();
-	
+    Planet alien3p;
+    Planet alien4p;		
+	Planet asteroid1p;
+	Planet asteroid2p;
+	Planet asteroid3p;
+	Planet asteroid4p;
+	Planet asteroid5p;
+    Planet bluemousep;
+    Planet element1p;
+	Planet element10p;
+	Planet element11p;
+	Planet element12p;
+	Planet element13p;
+	Planet element14p;
+    Planet element15p;
+    Planet element16p;
+	Planet element17p;
+	Planet element18p;
+	Planet element19p;
+	Planet element2p; 
+	Planet element20p;
+    Planet element21p;
+    Planet element22p;
+	Planet element23p;
+	Planet element24p;
+	Planet element25p;
+	Planet element26p;
+	Planet element27p;
+    Planet element28p;
+    Planet element29p;
+	Planet element3p; 
+	Planet element30p;
+	Planet element31p;
+	Planet element4p;
+	Planet element5p; 
+    Planet element6p; 
+    Planet element7p; 
+	Planet element8p; 
+	Planet element9p; 
+	Planet fireflyp;
+	Planet largemoonp; 
+	Planet lightp;
+    Planet lightoffp;  
+    Planet lightonp;
+	Planet moonp;
+	Planet pixelflyp; 
+	Planet planet1p;
+	Planet planet10p; 
+	Planet planet11p; 
+    Planet planet12p; 
+    Planet planet13p; 
+	Planet planet2p;
+	Planet planet3p;
+	Planet planet4p;
+	Planet planet5p;
+	Planet planet6p;
+    Planet planet7p;
+    Planet planet8p;
+	Planet planet9p;
+	Planet star32p; 
+	Planet tinyufop;
+
+
+	ArrayList<Planet> moons = new ArrayList<>();
 	ArrayList<Planet> planets = new ArrayList<>();
     ArrayList<Planet> ufos = new ArrayList<>();
+	
 	Random r = new Random();
 
     @Override
     public void create() {
+		
+	    int h = Gdx.graphics.getWidth();
+	    int w = Gdx.graphics.getHeight();
+	
 		background = new Texture("background.png");
 		alien3 = new Texture("alien3.png");
 		alien4 = new Texture("alien4.png");
@@ -289,30 +358,30 @@ public class Main extends ApplicationAdapter {
 
        // create the camera and the SpriteBatch
        camera = new OrthographicCamera();
-       camera.setToOrtho(false, 800, 600);
+       camera.setToOrtho(false, windowWidth, windowHeight);
+	   camera.position.set(windowWidth / 2, windowHeight / 2, 0);
        batch = new SpriteBatch();
 
 
 
 	 for (int i = 0; i < 19; i++) {
-		int randx = MathUtils.random(0, 900); 
-		int randy = MathUtils.random(0, 600);
-		 
-		balls.add(new Ball(batch, element1, element1r, randx, randy, 1, 1));
+		int randx = MathUtils.random(0, windowWidth + 150); 
+		int randy = MathUtils.random(0, windowHeight + 150);		 
+		moons.add(new Planet(batch, element1, element1r, randx, randy, 1, 1));
    	} 
 
 
 	 for (int i = 0; i < 10; i++) {
-		int randx = MathUtils.random(0, 900); 
-		int randy = MathUtils.random(0, 600);		 
+		int randx = MathUtils.random(0, windowWidth + 150); 
+		int randy = MathUtils.random(0, windowHeight + 150);		 
 		planets.add(new Planet(batch, element2, element2r, randx, randy, 1, 1));
    	} 
 	
 	
 	
 	for (int i = 0; i < 3; i++) {
-		int randx = MathUtils.random(0, 900); 
-		int randy = MathUtils.random(0, 600);		 
+		int randx = MathUtils.random(0, windowWidth + 150); 
+		int randy = MathUtils.random(0, windowHeight + 150);		 
 		ufos.add(new Planet(batch, tinyufo, tinyufor, randx, randy, 1, 1));
    	}
 
@@ -320,7 +389,7 @@ public class Main extends ApplicationAdapter {
 	 
 	  //public Ball(int x, int y, int size, int xSpeed, int ySpeed)
 	  //public Ball(SpriteBatch batch, Texture image, TextureRegion imager, int x, int y, int xSpeed, int ySpeed)
-      ball = new Ball(batch, alien3, alien3r, 1, 1, 1, 1);
+      alien3p = new Planet(batch, alien3, alien3r, 1, 1, 1, 1);
 
 
     }
@@ -328,7 +397,7 @@ public class Main extends ApplicationAdapter {
     @Override
     public void render() {
         
-		ScreenUtils.clear(0, 0, 0.2f, 1);
+		ScreenUtils.clear(0, 0, 0, 1);
 		camera.update();
         batch.setProjectionMatrix(camera.combined);
 	  
@@ -336,13 +405,13 @@ public class Main extends ApplicationAdapter {
 		batch.begin();
 	    batch.enableBlending();
 	    //background
-	    batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	    batch.draw(background, 0, 0, windowWidth, windowHeight);
 		
 	
 
-		for (Ball ball : balls) {
-		ball.update(element1);
-		ball.draw(batch, element1, element1r);
+		for (Planet moon : moons) {
+		moon.update(element1);
+		moon.draw(batch, element1, element1r);
 		}
 
 		for (Planet planet : planets) {
@@ -357,8 +426,8 @@ public class Main extends ApplicationAdapter {
 		}
 		
 		//alien 
-        ball.update(alien3);
-        ball.draw(batch, alien3, alien3r);
+        alien3p.update(alien3);
+        alien3p.draw(batch, alien3, alien3r);
 		
 
 
