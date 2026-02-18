@@ -2,27 +2,21 @@ package own.spacewallpaper;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.TimeUtils;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Main extends ApplicationAdapter {
-	//1920×1080
-		
-	int windowWidth = 1920; 
-	int windowHeight = 1080; 
+
+
+	int windowWidth = 1080;
+	int windowHeight = 800;
 	Texture background;
 	Texture alien3;
 	Texture alien4;
@@ -84,9 +78,9 @@ public class Main extends ApplicationAdapter {
 	Texture planet8;
 	Texture planet9;
 	Texture star32;
-	Texture tinyufo;	
-	
-	
+	Texture tinyufo;
+
+
 	TextureRegion alien3r;
 	TextureRegion alien4r;
 	TextureRegion asteroid1r;
@@ -147,89 +141,29 @@ public class Main extends ApplicationAdapter {
 	TextureRegion planet8r;
 	TextureRegion planet9r;
 	TextureRegion star32r;
-	TextureRegion tinyufor;	
+	TextureRegion tinyufor;
 
 
 
-	private SpriteBatch batch;	
-	private OrthographicCamera camera;
-    Planet alien3p;
-    Planet alien4p;		
-	Planet asteroid1p;
-	Planet asteroid2p;
-	Planet asteroid3p;
-	Planet asteroid4p;
-	Planet asteroid5p;
-    Planet bluemousep;
-    Planet element1p;
-	Planet element10p;
-	Planet element11p;
-	Planet element12p;
-	Planet element13p;
-	Planet element14p;
-    Planet element15p;
-    Planet element16p;
-	Planet element17p;
-	Planet element18p;
-	Planet element19p;
-	Planet element2p; 
-	Planet element20p;
-    Planet element21p;
-    Planet element22p;
-	Planet element23p;
-	Planet element24p;
-	Planet element25p;
-	Planet element26p;
-	Planet element27p;
-    Planet element28p;
-    Planet element29p;
-	Planet element3p; 
-	Planet element30p;
-	Planet element31p;
-	Planet element4p;
-	Planet element5p; 
-    Planet element6p; 
-    Planet element7p; 
-	Planet element8p; 
-	Planet element9p; 
-	Planet fireflyp;
-	Planet largemoonp; 
-	Planet lightp;
-    Planet lightoffp;  
-    Planet lightonp;
-	Planet moonp;
-	Planet pixelflyp; 
-	Planet planet1p;
-	Planet planet10p; 
-	Planet planet11p; 
-    Planet planet12p; 
-    Planet planet13p; 
-	Planet planet2p;
-	Planet planet3p;
-	Planet planet4p;
-	Planet planet5p;
-	Planet planet6p;
-    Planet planet7p;
-    Planet planet8p;
-	Planet planet9p;
-	Planet star32p; 
-	Planet tinyufop;
-
+	SpriteBatch batch;
+	OrthographicCamera camera;
+	ExtendViewport viewport;
 
 	ArrayList<Planet> moons = new ArrayList<>();
 	ArrayList<Planet> planets = new ArrayList<>();
     ArrayList<Planet> ufos = new ArrayList<>();
 	ArrayList<Planet> stars = new ArrayList<>();
-	
+    ArrayList<Planet> asteroids = new ArrayList<>();
+
 	Random r = new Random();
 
     @Override
     public void create() {
-		
+
 	    int h = Gdx.graphics.getWidth();
 	    int w = Gdx.graphics.getHeight();
-	
-		background = new Texture("background.png");
+
+		background = new Texture("background-test.png");
 		alien3 = new Texture("alien3.png");
 		alien4 = new Texture("alien4.png");
 		asteroid1 = new Texture("asteroid1.png");
@@ -291,8 +225,8 @@ public class Main extends ApplicationAdapter {
 		planet9 = new Texture("planet9.png");
 		star32 = new Texture("star32.png");
 		tinyufo = new Texture("tinyufo.png");
-		
-		
+
+
 		alien3r = new TextureRegion(alien3);
 		alien4r = new TextureRegion(alien4);
 		asteroid1r = new TextureRegion(asteroid1);
@@ -358,172 +292,114 @@ public class Main extends ApplicationAdapter {
 
 
        // create the camera and the SpriteBatch
-       camera = new OrthographicCamera();
-       camera.setToOrtho(false, windowWidth, windowHeight);
-	   camera.position.set(windowWidth / 2, windowHeight / 2, 0);
+       camera = new OrthographicCamera(windowWidth, windowHeight);
+	   viewport = new ExtendViewport(windowWidth, windowHeight, camera);
        batch = new SpriteBatch();
 
 
-	//speed test 
+	//speed test
 	int speed = 0;
 
-	 for (int i = 0; i < 30; i++) {		 
-		moons.add(new Planet(batch, element1, element1r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed));
-   	} 
 
-
-	 for (int i = 0; i < 15; i++) {		 
-		planets.add(new Planet(batch, element2, element2r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed));
-   	} 
-	
-
-	for (int i = 0; i < 6; i++) {		 
-		stars.add(new Planet(batch, star32, star32r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed));
-   	}	
-	
-	for (int i = 0; i < 6; i++) {		 
-		ufos.add(new Planet(batch, tinyufo, tinyufor, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed));
+	 for (int i = 0; i < 60; i++) {
+		moons.add(new Planet(batch, element1, element1r));
    	}
 
 
-	 
+	 for (int i = 0; i < 10; i++) {
+		planets.add(new Planet(batch, element2, element2r));
+   	}
 
-      //Planet(SpriteBatch batch, Texture image, TextureRegion imager, int x, int y, int xSpeed, int ySpeed)
-	  
 
-      alien3p = new Planet(batch, alien3, alien3r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  alien4p = new Planet(batch, alien4, alien4r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  asteroid1p = new Planet(batch, asteroid1, asteroid1r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  asteroid2p = new Planet(batch, asteroid2, asteroid2r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  asteroid3p = new Planet(batch, asteroid3, asteroid3r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  asteroid4p = new Planet(batch, asteroid4, asteroid4r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  asteroid5p = new Planet(batch, asteroid5, asteroid5r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  bluemousep = new Planet(batch, bluemouse, bluemouser, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  
-	  element1p = new Planet(batch, element1, element1r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element10p = new Planet(batch, element10, element10r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element11p = new Planet(batch, element11, element11r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element12p = new Planet(batch, element12, element12r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element13p = new Planet(batch, element13, element13r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element14p = new Planet(batch, element14, element14r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element15p = new Planet(batch, element15, element15r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element16p = new Planet(batch, element16, element16r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element17p = new Planet(batch, element17, element17r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element18p = new Planet(batch, element18, element18r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element19p = new Planet(batch, element19, element19r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element2p = new Planet(batch, element2, element2r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  element20p = new Planet(batch, element20, element20r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element21p = new Planet(batch, element21, element21r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element22p = new Planet(batch, element22, element22r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element23p = new Planet(batch, element23, element23r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element24p = new Planet(batch, element24, element24r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element25p = new Planet(batch, element25, element25r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element26p = new Planet(batch, element26, element26r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element27p = new Planet(batch, element27, element27r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element28p = new Planet(batch, element28, element28r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element29p = new Planet(batch, element29, element29r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element3p = new Planet(batch, element3, element3r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  element30p = new Planet(batch, element30, element30r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element31p = new Planet(batch, element31, element31r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element4p = new Planet(batch, element4, element4r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  element5p = new Planet(batch, element5, element5r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  element6p = new Planet(batch, element6, element6r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  element7p = new Planet(batch, element7, element7r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  element8p = new Planet(batch, element8, element8r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  element9p = new Planet(batch, element9, element9r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  fireflyp = new Planet(batch, firefly, fireflyr, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  largemoonp = new Planet(batch, largemoon, largemoonr, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  lightp = new Planet(batch, light, lightr, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  lightoffp = new Planet(batch, lightoff, lightoffr, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);  
-	  lightonp = new Planet(batch, lighton, lightonr, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  moonp = new Planet(batch, moon, moonr, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  pixelflyp = new Planet(batch, pixelfly, pixelflyr, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  
-	  planet1p = new Planet(batch, planet1, planet1r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet10p = new Planet(batch, planet10, planet10r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  planet11p = new Planet(batch, planet11, planet11r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  planet12p = new Planet(batch, planet12, planet12r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  planet13p = new Planet(batch, planet13, planet13r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  planet2p = new Planet(batch, planet2, planet2r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet3p = new Planet(batch, planet3, planet3r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet4p = new Planet(batch, planet4, planet4r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet5p = new Planet(batch, planet5, planet5r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet6p = new Planet(batch, planet6, planet6r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet7p = new Planet(batch, planet7, planet7r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet8p = new Planet(batch, planet8, planet8r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  planet9p = new Planet(batch, planet9, planet9r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
-	  
-	  star32p = new Planet(batch, star32, star32r, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed); 
-	  tinyufop = new Planet(batch, tinyufo, tinyufor, MathUtils.random(0, windowWidth + 150), MathUtils.random(0, windowHeight + 150), speed, speed);
+	for (int i = 0; i < 6; i++) {
+		stars.add(new Planet(batch, star32, star32r));
+   	}
+
+	for (int i = 0; i < 6; i++) {
+		ufos.add(new Planet(batch, tinyufo, tinyufor));
+   	}
+
+    for (int i = 0; i < 2; i++) {
+        asteroids.add(new Planet(batch, asteroid1, asteroid1r));
+        asteroids.add(new Planet(batch, asteroid2, asteroid2r));
+        asteroids.add(new Planet(batch, asteroid3, asteroid3r));
+        asteroids.add(new Planet(batch, asteroid4, asteroid4r));
+        asteroids.add(new Planet(batch, asteroid5, asteroid5r));
+    }
+
+
 
 
     }
 
+	@Override
+	public void resize(int width, int height) {
+		viewport.update(width, height, true);
+		batch.setProjectionMatrix(camera.combined);
+	}
+
+
     @Override
     public void render() {
-        
+
 		ScreenUtils.clear(0, 0, 0, 1);
 		camera.update();
         batch.setProjectionMatrix(camera.combined);
-	  
-		
+
+
 		batch.begin();
 	    batch.enableBlending();
-	    //background
 	    batch.draw(background, 0, 0, windowWidth, windowHeight);
-		
-	
+
+
 
 		for (Planet moon : moons) {
-		moon.update(element1);
-		moon.draw(batch, element1, element1r);
+		moon.update();
+		moon.draw(batch, element1r);
 		}
 
 		for (Planet planet : planets) {
-		planet.update(element2);
-		planet.draw(batch, element2, element2r);
-		}		
+		planet.update();
+		planet.draw(batch, element2r);
+		}
 
 		for (Planet star : stars) {
-		star.update(star32);
-		star.draw(batch, star32, star32r);
+		star.update();
+		star.draw(batch, star32r);
 		}
 
 		for (Planet ufo : ufos) {
-		ufo.update(tinyufo);
-		ufo.draw(batch, tinyufo, tinyufor);
+		ufo.update();
+		ufo.draw(batch, tinyufor);
 		}
-		
+
+        for (Planet asteroid : asteroids) {
+            asteroid.update();
+            asteroid.draw(batch, asteroid1r);
+            asteroid.draw(batch, asteroid2r);
+            asteroid.draw(batch, asteroid3r);
+            asteroid.draw(batch, asteroid4r);
+            asteroid.draw(batch, asteroid5r);
+        }
+
+/*
 		//misc stuff
-        alien3p.update(alien3);
-        alien3p.draw(batch, alien3, alien3r);
+        alien3p.update();
+        alien3p.draw(batch, alien3r);
 
-        alien4p.update(alien4);
-        alien4p.draw(batch, alien4, alien4r);		
+        alien4p.update();
+        alien4p.draw(batch, alien4r);
 
-        asteroid1p.update(asteroid1);
-        asteroid1p.draw(batch, asteroid1, asteroid1r);
 
-        asteroid2p.update(asteroid2);
-        asteroid2p.draw(batch, asteroid2, asteroid2r);
-		
-		asteroid3p.update(asteroid3);
-        asteroid3p.draw(batch, asteroid3, asteroid3r);
 
-        asteroid4p.update(asteroid4);
-        asteroid4p.draw(batch, asteroid4, asteroid4r);
-		
-        asteroid5p.update(asteroid5);
-        asteroid5p.draw(batch, asteroid5, asteroid5r);
+        bluemousep.update();
+        bluemousep.draw(batch, bluemouser);
+*/
 
-        bluemousep.update(bluemouse);
-        bluemousep.draw(batch, bluemouse, bluemouser);		
-
-				
 
 		batch.end();
-		
-		
+
+
     }
 
 }
