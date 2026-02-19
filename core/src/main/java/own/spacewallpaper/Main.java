@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -147,21 +148,72 @@ public class Main extends ApplicationAdapter {
 
 	SpriteBatch batch;
 	OrthographicCamera camera;
-	ExtendViewport viewport;
+	FitViewport viewport;
 
-	ArrayList<Planet> moons = new ArrayList<>();
-	ArrayList<Planet> planets = new ArrayList<>();
-    ArrayList<Planet> ufos = new ArrayList<>();
-	ArrayList<Planet> stars = new ArrayList<>();
-    ArrayList<Planet> asteroids = new ArrayList<>();
-
-	Random r = new Random();
+    ArrayList<Planet> alien3s = new ArrayList<>();
+    ArrayList<Planet> alien4s = new ArrayList<>();
+    ArrayList<Planet> asteroid1s = new ArrayList<>();
+    ArrayList<Planet> asteroid2s = new ArrayList<>();
+    ArrayList<Planet> asteroid3s = new ArrayList<>();
+    ArrayList<Planet> asteroid4s = new ArrayList<>();
+    ArrayList<Planet> asteroid5s = new ArrayList<>();
+    ArrayList<Planet> bluemouses = new ArrayList<>();
+    ArrayList<Planet> element1s = new ArrayList<>();
+    ArrayList<Planet> element10s = new ArrayList<>();
+    ArrayList<Planet> element11s = new ArrayList<>();
+    ArrayList<Planet> element12s = new ArrayList<>();
+    ArrayList<Planet> element13s = new ArrayList<>();
+    ArrayList<Planet> element14s = new ArrayList<>();
+    ArrayList<Planet> element15s = new ArrayList<>();
+    ArrayList<Planet> element16s = new ArrayList<>();
+    ArrayList<Planet> element17s = new ArrayList<>();
+    ArrayList<Planet> element18s = new ArrayList<>();
+    ArrayList<Planet> element19s = new ArrayList<>();
+    ArrayList<Planet> element2s = new ArrayList<>();
+    ArrayList<Planet> element20s = new ArrayList<>();
+    ArrayList<Planet> element21s = new ArrayList<>();
+    ArrayList<Planet> element22s = new ArrayList<>();
+    ArrayList<Planet> element23s = new ArrayList<>();
+    ArrayList<Planet> element24s = new ArrayList<>();
+    ArrayList<Planet> element25s = new ArrayList<>();
+    ArrayList<Planet> element26s = new ArrayList<>();
+    ArrayList<Planet> element27s = new ArrayList<>();
+    ArrayList<Planet> element28s = new ArrayList<>();
+    ArrayList<Planet> element29s = new ArrayList<>();
+    ArrayList<Planet> element3s = new ArrayList<>();
+    ArrayList<Planet> element30s = new ArrayList<>();
+    ArrayList<Planet> element31s = new ArrayList<>();
+    ArrayList<Planet> element4s = new ArrayList<>();
+    ArrayList<Planet> element5s = new ArrayList<>();
+    ArrayList<Planet> element6s = new ArrayList<>();
+    ArrayList<Planet> element7s = new ArrayList<>();
+    ArrayList<Planet> element8s = new ArrayList<>();
+    ArrayList<Planet> element9s = new ArrayList<>();
+    ArrayList<Planet> fireflys = new ArrayList<>();
+    ArrayList<Planet> largemoons = new ArrayList<>();
+    ArrayList<Planet> lights = new ArrayList<>();
+    ArrayList<Planet> lightoffs = new ArrayList<>();
+    ArrayList<Planet> lightons = new ArrayList<>();
+    ArrayList<Planet> moons = new ArrayList<>();
+    ArrayList<Planet> pixelflys = new ArrayList<>();
+    ArrayList<Planet> planet1s = new ArrayList<>();
+    ArrayList<Planet> planet10s = new ArrayList<>();
+    ArrayList<Planet> planet11s = new ArrayList<>();
+    ArrayList<Planet> planet12s = new ArrayList<>();
+    ArrayList<Planet> planet13s = new ArrayList<>();
+    ArrayList<Planet> planet2s = new ArrayList<>();
+    ArrayList<Planet> planet3s = new ArrayList<>();
+    ArrayList<Planet> planet4s = new ArrayList<>();
+    ArrayList<Planet> planet5s = new ArrayList<>();
+    ArrayList<Planet> planet6s = new ArrayList<>();
+    ArrayList<Planet> planet7s = new ArrayList<>();
+    ArrayList<Planet> planet8s = new ArrayList<>();
+    ArrayList<Planet> planet9s = new ArrayList<>();
+    ArrayList<Planet> star32s = new ArrayList<>();
+    ArrayList<Planet> tinyufos = new ArrayList<>();
 
     @Override
     public void create() {
-
-	    int h = Gdx.graphics.getWidth();
-	    int w = Gdx.graphics.getHeight();
 
 		background = new Texture("background-test.png");
 		alien3 = new Texture("alien3.png");
@@ -293,7 +345,7 @@ public class Main extends ApplicationAdapter {
 
        // create the camera and the SpriteBatch
        camera = new OrthographicCamera(windowWidth, windowHeight);
-	   viewport = new ExtendViewport(windowWidth, windowHeight, camera);
+	   viewport = new FitViewport(1080, 800, camera);
        batch = new SpriteBatch();
 
 
@@ -302,33 +354,105 @@ public class Main extends ApplicationAdapter {
 
 
 	 for (int i = 0; i < 60; i++) {
-		moons.add(new Planet(batch, element1, element1r));
+		element1s.add(new Planet(batch, element1, element1r));
+   	 }
+     for (int i = 0; i < 15; i++) {
+         element2s.add(new Planet(batch, element2, element2r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element3s.add(new Planet(batch, element3, element3r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element4s.add(new Planet(batch, element4, element4r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element5s.add(new Planet(batch, element5, element5r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element6s.add(new Planet(batch, element6, element6r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element7s.add(new Planet(batch, element7, element7r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element8s.add(new Planet(batch, element8, element8r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element9s.add(new Planet(batch, element9, element9r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element10s.add(new Planet(batch, element10, element10r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element10s.add(new Planet(batch, element11, element11r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element10s.add(new Planet(batch, element12, element12r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element10s.add(new Planet(batch, element13, element13r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element10s.add(new Planet(batch, element14, element14r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element10s.add(new Planet(batch, element15, element15r));
+     }
+     for (int i = 0; i < 5; i++) {
+         element10s.add(new Planet(batch, element16, element16r));
+     }
+     for (int i = 0; i < 3; i++) {
+         bluemouses.add(new Planet(batch, bluemouse, bluemouser));
+     }
+
+     for (int i = 0; i < 3; i++) {
+         star32s.add(new Planet(batch, star32, star32r));
+     }
+     for (int i = 0; i < 3; i++) {
+         moons.add(new Planet(batch, moon, moonr));
+     }
+     for (int i = 0; i < 3; i++) {
+         fireflys.add(new Planet(batch, firefly, fireflyr));
+     }
+     for (int i = 0; i < 3; i++) {
+         lights.add(new Planet(batch, light, lightr));
+     }
+     for (int i = 0; i < 3; i++) {
+         lightons.add(new Planet(batch, lighton, lightonr));
+     }
+     for (int i = 0; i < 3; i++) {
+         lightoffs.add(new Planet(batch, lightoff, lightoffr));
+     }
+     for (int i = 0; i < 3; i++) {
+         pixelflys.add(new Planet(batch, pixelfly, pixelflyr));
+     }
+
+
+	for (int i = 0; i < 3; i++) {
+		tinyufos.add(new Planet(batch, tinyufo, tinyufor));
    	}
-
-
-	 for (int i = 0; i < 10; i++) {
-		planets.add(new Planet(batch, element2, element2r));
-   	}
-
-
-	for (int i = 0; i < 6; i++) {
-		stars.add(new Planet(batch, star32, star32r));
-   	}
-
-	for (int i = 0; i < 6; i++) {
-		ufos.add(new Planet(batch, tinyufo, tinyufor));
-   	}
-
-    for (int i = 0; i < 2; i++) {
-        asteroids.add(new Planet(batch, asteroid1, asteroid1r));
-        asteroids.add(new Planet(batch, asteroid2, asteroid2r));
-        asteroids.add(new Planet(batch, asteroid3, asteroid3r));
-        asteroids.add(new Planet(batch, asteroid4, asteroid4r));
-        asteroids.add(new Planet(batch, asteroid5, asteroid5r));
+    for (int i = 0; i < 3; i++) {
+        alien3s.add(new Planet(batch, alien3, alien3r));
+    }
+    for (int i = 0; i < 3; i++) {
+        alien4s.add(new Planet(batch, alien4, alien4r));
     }
 
-
-
+    for (int i = 0; i < 2; i++) {
+        asteroid1s.add(new Planet(batch, asteroid1, asteroid1r));
+    }
+    for (int i = 0; i < 2; i++) {
+        asteroid1s.add(new Planet(batch, asteroid2, asteroid2r));
+    }
+    for (int i = 0; i < 2; i++) {
+        asteroid1s.add(new Planet(batch, asteroid3, asteroid3r));
+    }
+    for (int i = 0; i < 2; i++) {
+        asteroid1s.add(new Planet(batch, asteroid4, asteroid4r));
+    }
+    for (int i = 0; i < 2; i++) {
+        asteroid1s.add(new Planet(batch, asteroid5, asteroid5r));
+    }
 
     }
 
@@ -353,49 +477,138 @@ public class Main extends ApplicationAdapter {
 
 
 
-		for (Planet moon : moons) {
-		moon.update();
-		moon.draw(batch, element1r);
+        for (Planet element : element1s) {
+		    element.update();
+		    element.draw(batch, element1r);
 		}
-
-		for (Planet planet : planets) {
-		planet.update();
-		planet.draw(batch, element2r);
+		for (Planet element : element2s) {
+		    element.update();
+		    element.draw(batch, element2r);
 		}
-
-		for (Planet star : stars) {
-		star.update();
-		star.draw(batch, star32r);
-		}
-
-		for (Planet ufo : ufos) {
-		ufo.update();
-		ufo.draw(batch, tinyufor);
-		}
-
-        for (Planet asteroid : asteroids) {
-            asteroid.update();
-            asteroid.draw(batch, asteroid1r);
-            asteroid.draw(batch, asteroid2r);
-            asteroid.draw(batch, asteroid3r);
-            asteroid.draw(batch, asteroid4r);
-            asteroid.draw(batch, asteroid5r);
+        for (Planet element : element3s) {
+            element.update();
+            element.draw(batch, element3r);
+        }
+        for (Planet element : element4s) {
+            element.update();
+            element.draw(batch, element4r);
+        }
+        for (Planet element : element5s) {
+            element.update();
+            element.draw(batch, element5r);
+        }
+        for (Planet element : element6s) {
+            element.update();
+            element.draw(batch, element6r);
+        }
+        for (Planet element : element7s) {
+            element.update();
+            element.draw(batch, element7r);
+        }
+        for (Planet element : element8s) {
+            element.update();
+            element.draw(batch, element8r);
+        }
+        for (Planet element : element9s) {
+            element.update();
+            element.draw(batch, element9r);
+        }
+        for (Planet element : element10s) {
+            element.update();
+            element.draw(batch, element10r);
+        }
+        for (Planet element : element11s) {
+            element.update();
+            element.draw(batch, element11r);
+        }
+        for (Planet element : element12s) {
+            element.update();
+            element.draw(batch, element12r);
+        }
+        for (Planet element : element13s) {
+            element.update();
+            element.draw(batch, element13r);
+        }
+        for (Planet element : element14s) {
+            element.update();
+            element.draw(batch, element14r);
+        }
+        for (Planet element : element15s) {
+            element.update();
+            element.draw(batch, element15r);
+        }
+        for (Planet element : element16s) {
+            element.update();
+            element.draw(batch, element16r);
         }
 
-/*
-		//misc stuff
-        alien3p.update();
-        alien3p.draw(batch, alien3r);
+        for (Planet pixel : bluemouses) {
+            pixel.update();
+            pixel.draw(batch, bluemouser);
+        }
+        for (Planet pixel : star32s) {
+            pixel.update();
+            pixel.draw(batch, star32r);
+        }
+        for (Planet pixel : moons) {
+            pixel.update();
+            pixel.draw(batch, moonr);
+        }
+        for (Planet pixel : fireflys) {
+            pixel.update();
+            pixel.draw(batch, fireflyr);
+        }
+        for (Planet pixel : lights) {
+            pixel.update();
+            pixel.draw(batch, lightr);
+        }
+        for (Planet pixel : lightons) {
+            pixel.update();
+            pixel.draw(batch, lightonr);
+        }
+        for (Planet pixel : lightoffs) {
+            pixel.update();
+            pixel.draw(batch, lightoffr);
+        }
+        for (Planet pixel : pixelflys) {
+            pixel.update();
+            pixel.draw(batch, pixelflyr);
+        }
 
-        alien4p.update();
-        alien4p.draw(batch, alien4r);
+		for (Planet ufo : tinyufos) {
+		    ufo.update();
+		    ufo.draw(batch, tinyufor);
+		}
+        for (Planet alien3 : alien3s) {
+            alien3.update();
+            alien3.draw(batch, alien3r);
+        }
+        for (Planet alien4 : alien4s) {
+            alien4.update();
+            alien4.draw(batch, alien4r);
+        }
 
 
-
-        bluemousep.update();
-        bluemousep.draw(batch, bluemouser);
-*/
-
+        for (Planet asteroid : asteroid1s) {
+            asteroid.update();
+            asteroid.draw(batch, asteroid1r);
+        }
+        for (Planet asteroid : asteroid2s) {
+            asteroid.update();
+            asteroid.draw(batch, asteroid2r);
+        }
+        for (Planet asteroid : asteroid3s) {
+            asteroid.update();
+            asteroid.draw(batch, asteroid3r);
+        }
+        for (Planet asteroid : asteroid4s) {
+            asteroid.update();
+            asteroid.draw(batch, asteroid4r);
+        }
+        for (Planet asteroid : asteroid5s) {
+            asteroid.update();
+            asteroid.draw(batch, asteroid5r);
+        }
 
 		batch.end();
 
